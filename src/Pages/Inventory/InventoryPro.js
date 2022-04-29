@@ -8,20 +8,20 @@ const InventoryPro = ({ item }) => {
 
     return (
         <div className='col'>
-            <Card style={{ width: '20rem' }}>
+            <Card style={{ width: '21rem' }}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
                         <p>
-                          {!expand && description.slice(0,100) + '...'} {!expand && <button onClick={()=> disExpand(true) }>Read more</button> }
-                          {expand && description} {expand && <button onClick={() => disExpand(false)}>Read less</button>}
+                          {!expand && description.slice(0,90)+'...'} {!expand && <button  className='bg-light border-0 text-primary fst-italic fw-bold p-0' onClick={()=> disExpand(true) }>Read more</button> }
+                          {expand && description} {expand && <button className='bg-light border-0 text-primary fst-italic fw-bold p-0' onClick={() => disExpand(false)}>Read less</button>}
                         </p>
-                        <span>{price}</span>
-                        <p>{quantity}</p>
-                        <span>{supplierName}</span>
+                        <span className='fw-bold'><span className='text-danger'>Price:</span> {price}</span> <br />
+                        <span className='fw-bold'><span className='text-danger'>Quantity:</span> {quantity}</span>
+                        <p className='text-muted fw-bolder'><small>Supplier Name: {supplierName}</small></p>
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="primary" className='ms-5 ps-5 pe-5 pt-2 pb-2'>Go somewhere</Button>
                 </Card.Body>
             </Card>
         </div>
