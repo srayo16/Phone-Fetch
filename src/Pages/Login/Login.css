@@ -1,0 +1,9 @@
+.handlewidth{
+    width: 500px;
+}
+
+@media screen and (max-width: 440px) {
+    .handlewidth{
+        width: fit-content;
+    }
+}

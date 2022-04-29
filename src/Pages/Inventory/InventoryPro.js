@@ -21,7 +21,7 @@ const InventoryPro = ({ item }) => {
                         <span className='fw-bold'><span className='text-danger'>Quantity:</span> {quantity}</span>
                         <p className='text-muted fw-bolder'><small>Supplier Name: {supplierName}</small></p>
                     </Card.Text>
-                    <Button variant="primary" className='ms-5 ps-5 pe-5 pt-2 pb-2'>Go somewhere</Button>
+                    <Button variant="primary" className='ms-5 ps-5 pe-5 pt-2 pb-2'>Stock Update</Button>
                 </Card.Body>
             </Card>
         </div>
