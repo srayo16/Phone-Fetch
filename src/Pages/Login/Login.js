@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../Shared/Firebase.init';
@@ -16,10 +16,18 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    let navigate = useNavigate();
+
+    let location = useLocation();
+
     const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(auth);
+
+    let from = location.state?.from?.pathname || "/";
     const mail = useRef('');
+
     let errorMessage;
-    if (error ||error2) {
+    if (error || error2) {
         errorMessage = <p className='text-danger fw-bold'>{error?.message} {error2?.message}</p>
     }
 
@@ -32,7 +40,8 @@ const Login = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-       await signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        navigate(from, { replace: true });
     }
 
     //reset pass function
@@ -69,14 +78,14 @@ const Login = () => {
                         <Form.Control type="password" placeholder="Password" name='password' required />
                     </Form.Group>
                     <Button variant="primary" type="submit" className='mt-1'>
-                       Log in
+                        Log in
                     </Button>
                 </Form>
-                
+
                 {errorMessage}
 
                 <button onClick={() => resetPass()} className=' text-decoration-none border-0 bg-light mt-2 ps-0 text-primary'><span className='text-dark'>Forgot password?</span> Reset Password</button>
-                
+
                 <p className='mt-2'>Dont't have any account? <Link className='text-decoration-none' to='/signup'>create one</Link> </p>
                 <ToastContainer />
             </div>

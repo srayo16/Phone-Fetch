@@ -1,11 +1,28 @@
 import React from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import logo from '../../../logo/navLogoOrigin.png';
 import { Link } from 'react-router-dom';
 import CustomLink from '../../CustomLink';
 import { FcSmartphoneTablet } from 'react-icons/fc';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Firebase.init';
+import { signOut } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    const logOutHobe = () => {
+
+        signOut(auth).then(() => {
+            
+            toast('Log out successful')
+
+        }).catch((error) => {
+            // An error happened.
+        });
+
+    }
     return (
         <div>
             <Navbar bg="dark" expand="lg" variant="dark">
@@ -19,8 +36,11 @@ const Header = () => {
                             navbarScroll
                         >
                             <CustomLink className='me-3' to="/home">Home</CustomLink>
-                            <Nav.Link className='me-3' href='#inventory' style={{color: 'orange'}}>Inventory</Nav.Link>
-                            <CustomLink className='me-3' to="/login">Log In</CustomLink>
+                            <Nav.Link className='me-3' href='#inventory' style={{ color: 'orange' }}>Inventory</Nav.Link>
+                            {
+                                user ? <button className='bg-dark border-0 p-0 me-3' style={{ color: 'orange' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
+                            }
+
 
 
                         </Nav>
@@ -36,6 +56,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <ToastContainer />
         </div>
     );
 };

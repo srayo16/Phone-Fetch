@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Shared/Firebase.init';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,7 +22,7 @@ const Signup = () => {
     const [updateProfile, updating, error2] = useUpdateProfile(auth);
 
     const [agree, setAgree] = useState(false);
-
+    const navigate = useNavigate();
     let errorMessage;
     if (error) {
         errorMessage = <p className='text-danger fw-bold'>{error.message}</p>
@@ -48,6 +48,7 @@ const Signup = () => {
             await updateProfile({ displayName: name });
             toast('Sign up successful');
             toast('Sent email');
+            navigate('/home')
             localStorage.setItem('userName', name);
             localStorage.setItem('userAddress', address);
             localStorage.setItem('userNumber', number);

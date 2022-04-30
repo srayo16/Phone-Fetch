@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../Shared/Firebase.init';
 import Spinners from '../Spinners';
 import { FcGoogle } from 'react-icons/fc';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FaFacebook, FaGithub } from 'react-icons/fa';
 
 const Social = () => {
@@ -24,6 +26,7 @@ const Social = () => {
 
     }
     if (user || user2 || user3) {
+        toast('Signed up');
         navigate('/home')
     }
 
@@ -46,6 +49,7 @@ const Social = () => {
             <div className='text-center mt-3'>
                 <button className='btn btn-dark border border-secondary rounded-pill w-50' onClick={() => signInWithGithub()}><span className='fs-3'><FaGithub></FaGithub></span> <span className='fs-5 text-lightfw-bolder ps-2'>Continue with github</span></button>
             </div>
+            <ToastContainer />
         </div>
     );
 };
