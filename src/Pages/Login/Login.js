@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,24 +16,41 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(auth);
+    const mail = useRef('');
     let errorMessage;
-    if (error) {
-        errorMessage = <p className='text-danger fw-bold'>{error.message}</p>
+    if (error ||error2) {
+        errorMessage = <p className='text-danger fw-bold'>{error?.message} {error2?.message}</p>
     }
 
-    if (loading) {
+    if (loading || sending) {
         return <Spinners></Spinners>
     }
 
     //log form issue arrow funtion
-    const onsublogin = event => {
+    const onsublogin = async event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password)
+       await signInWithEmailAndPassword(email, password);
     }
 
+    //reset pass function
+
+    const resetPass = async () => {
+        const email = mail.current.value;;
+
+        if (email && !error2) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+
+        }
+        else {
+            alert('Email field empty!');
+        }
+
+
+    }
     return (
         <div className='container'>
             <h1 className='text-center text-primary mt-3 mb-5'>Please log in</h1>
@@ -41,7 +58,7 @@ const Login = () => {
                 <Form onSubmit={onsublogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" name='email' required />
+                        <Form.Control type="email" placeholder="Enter email" ref={mail} name='email' required />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -55,7 +72,11 @@ const Login = () => {
                        Log in
                     </Button>
                 </Form>
+                
                 {errorMessage}
+
+                <button onClick={() => resetPass()} className=' text-decoration-none border-0 bg-light mt-2 ps-0 text-primary'><span className='text-dark'>Forgot password?</span> Reset Password</button>
+                
                 <p className='mt-2'>Dont't have any account? <Link className='text-decoration-none' to='/signup'>create one</Link> </p>
                 <ToastContainer />
             </div>

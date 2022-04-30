@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import auth from '../Shared/Firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinners from '../Spinners';
 import Social from '../Social/Social';
+import { async } from '@firebase/util';
 
 const Signup = () => {
     const [
@@ -15,6 +16,12 @@ const Signup = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [sendEmailVerification, sending, error3] = useSendEmailVerification(auth);
+
+    const [updateProfile, updating, error2] = useUpdateProfile(auth);
+
+    const [agree, setAgree] = useState(false);
 
     let errorMessage;
     if (error) {
@@ -26,7 +33,7 @@ const Signup = () => {
     }
 
     //form er submit issue arrow funtion
-    const subsignupForm = event => {
+    const subsignupForm = async event => {
         event.preventDefault();
         const name = event.target.name.value;
         const address = event.target.address.value;
@@ -36,8 +43,11 @@ const Signup = () => {
         const confirmPassword = event.target.confirmPassword.value;
 
         if (password === confirmPassword) {
-            createUserWithEmailAndPassword(email, password)
+            await createUserWithEmailAndPassword(email, password)
+            await sendEmailVerification();
+            await updateProfile({ displayName: name });
             toast('Sign up successful');
+            toast('Sent email');
             localStorage.setItem('userName', name);
             localStorage.setItem('userAddress', address);
             localStorage.setItem('userNumber', number);
@@ -47,6 +57,7 @@ const Signup = () => {
             alert("password don't match");
         }
     }
+
     return (
         <div className='container mb-5'>
 
@@ -86,9 +97,9 @@ const Signup = () => {
 
 
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
+                        <Form.Check type="checkbox" style={{ color: agree ? 'green' : 'red' }} onClick={() => setAgree(!agree)} label="Agreed to our terms and policy" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button disabled={!agree} variant="primary" className='ps-4 pe-4 pt-2 pb-2 rounded-pill' type="submit">
                         Sign up
                     </Button>
                 </Form>
