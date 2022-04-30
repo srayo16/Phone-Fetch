@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../Shared/Firebase.init';
 import Spinners from '../Spinners';
 import { FcGoogle } from 'react-icons/fc';
@@ -13,7 +13,8 @@ const Social = () => {
     const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
     const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
     const navigate = useNavigate();
-
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let errorMess;
     if (loading || loading2 || loading3) {
         return <Spinners></Spinners>
@@ -26,12 +27,12 @@ const Social = () => {
 
     }
     if (user || user2 || user3) {
+        navigate(from, { replace: true });
         toast('Signed up');
-        navigate('/home')
     }
 
     return (
-        <div className=' container mt-3'>
+        <div className='container pb-5 mt-3 w-50'>
 
             <div className='d-flex align-items-center'>
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>

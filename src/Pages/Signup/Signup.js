@@ -62,7 +62,7 @@ const Signup = () => {
     return (
         <div className='container mb-5'>
 
-            <h1 className='text-center text-primary mt-3 mb-5'>Please Sign up</h1>
+            <h1 className='text-center text-primary mt-3 mb-3'>Please Sign up</h1>
 
             <div className='mx-auto handlewidth'>
 
