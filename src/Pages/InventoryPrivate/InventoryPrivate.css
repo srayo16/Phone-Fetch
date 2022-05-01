@@ -1,5 +1,24 @@
-.handleSection{
+.handleSection {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 440px) {
+    .handleSection {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .handleforRespo {
+        width: 300px !important;
+    }
+
+    .imgRespo {
+        max-width: 100% !important;
+        height: auto !important;
+    }
 }

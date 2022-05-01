@@ -7,6 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaFacebook, FaGithub } from 'react-icons/fa';
+import './Social.css';
 
 const Social = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -32,7 +33,7 @@ const Social = () => {
     }
 
     return (
-        <div className='container pb-5 mt-3 w-50'>
+        <div className='container pb-5 mt-3 w-50 handleWidthforRespo'>
 
             <div className='d-flex align-items-center'>
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
