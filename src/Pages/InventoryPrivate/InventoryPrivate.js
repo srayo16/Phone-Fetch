@@ -15,15 +15,23 @@ const InventoryPrivate = () => {
             .then(data => setDetail(data))
     }, [id])
 
-    // console.log(detail);
-
-    // console.log(quantity);
 
     const handleDeliver = () => {
         let deliver = 1;
-        let quantity = detail.quantity - deliver;
-        let updatedQuantity = { quantity };
-        // console.log(updatedQuantity);
+        let quantityParse = parseInt(detail.quantity);
+        let quantity = quantityParse - deliver;
+
+        // let updatedQuantity = { quantity };
+        let updatedQuantity = {
+            _id: detail._id,
+            name: detail.name,
+            img: detail.img,
+            description: detail.description,
+            price: detail.price,
+            quantity: quantity,
+            supplierName: detail.supplierName
+        };
+
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
@@ -34,7 +42,12 @@ const InventoryPrivate = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
+                if (data.modifiedCount > 0) {
+                    console.log('success', data);
+
+                    setDetail(updatedQuantity);
+
+                }
             })
     }
 
@@ -47,8 +60,16 @@ const InventoryPrivate = () => {
         let quantity2 = parseInt(quantity1);
         let quantity = stocksReal + quantity2;
 
-        let againUpdateQuantity = { quantity }
-        // console.log(quantity );
+
+        let againUpdateQuantity = {
+            _id: detail._id,
+            name: detail.name,
+            img: detail.img,
+            description: detail.description,
+            price: detail.price,
+            quantity: quantity,
+            supplierName: detail.supplierName
+        };
 
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
@@ -61,6 +82,7 @@ const InventoryPrivate = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
+                setDetail(againUpdateQuantity);
                 event.target.reset();
             })
     }

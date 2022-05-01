@@ -6,8 +6,10 @@ import Manageinventorypro from './Manageinventorypro';
 const ManageInventories = () => {
     const [items , setItems] = UseItems();
     let serial = 1;
+
     let deleteui = id =>{
         let remaining = items.filter(item => item._id !== id);
+        // console.log(items.filter(item => item._id));
         setItems(remaining);
     }
     return (
