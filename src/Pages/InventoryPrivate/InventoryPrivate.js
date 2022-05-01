@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './InventoryPrivate.css';
 import { GrDeliver } from 'react-icons/gr';
 import { Button } from 'react-bootstrap';
+import { BsArrowRight } from 'react-icons/bs';
 
 const InventoryPrivate = () => {
     const { id } = useParams();
@@ -12,7 +13,7 @@ const InventoryPrivate = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setDetail(data))
-    }, [])
+    }, [id])
 
     // console.log(detail);
 
@@ -22,7 +23,7 @@ const InventoryPrivate = () => {
         let deliver = 1;
         let quantity = detail.quantity - deliver;
         let updatedQuantity = { quantity };
-        console.log(updatedQuantity);
+        // console.log(updatedQuantity);
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
@@ -33,7 +34,6 @@ const InventoryPrivate = () => {
         })
             .then(res => res.json())
             .then(data => {
-                //    setDetail(data);
                 console.log('success', data);
             })
     }
@@ -41,10 +41,14 @@ const InventoryPrivate = () => {
     const newStock = event => {
         event.preventDefault();
         let stocks = event.target.number.value;
-        let quantity = detail.quantity + stocks;
+        let stocksReal = parseInt(stocks);
+
+        let quantity1 = detail.quantity;
+        let quantity2 = parseInt(quantity1);
+        let quantity = stocksReal + quantity2;
 
         let againUpdateQuantity = { quantity }
-        console.log(againUpdateQuantity);
+        // console.log(quantity );
 
         const url = `http://localhost:5000/inventory/${id}`;
         fetch(url, {
@@ -78,12 +82,14 @@ const InventoryPrivate = () => {
                     <span>Supplier-Name: {detail.supplierName}</span>
                     <p className='text-primary'>ID: {detail._id}</p>
                     <div className='text-center mt-3'>
-                        <Button variant="outline-primary" onClick={() => handleDeliver()} className='border-0 rounded-pill pt-2 pb-2'><span className='pe-2'><GrDeliver></GrDeliver> </span> <span className='pe-3 fw-bold'>Delivery</span></Button>
-                        <div className='mt-2 mb-2'>
+                        <Button variant="outline-primary" onClick={() => handleDeliver()} className='border-0 rounded-pill pt-2 pb-2 mb-2'><span className='pe-2'><GrDeliver></GrDeliver> </span> <span className='pe-3 fw-bold'>Delivery</span></Button>
+                        <div className='mt-2 mb-2 d-inline'>
                             <form onSubmit={newStock}>
                                 <input type="text" name='number' className=' border border-end-0 border-primary ps-2' placeholder='put here stock number' required />
                                 <input type="submit" value="Restock" className='bg-primary text-light border-0 rounded ps-2 pe-2 pt-1 pb-1' />
                             </form>
+                            <Link to='/manageinventoreis' className='text-decoration-none fw-bold fst-italic'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
+
                         </div>
                     </div>
                 </div>

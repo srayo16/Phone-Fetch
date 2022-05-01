@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import InventoryPrivate from './Pages/InventoryPrivate/InventoryPrivate';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import ManageInventories from './Pages/ManageInventories/ManageInventories';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/inventory/:id' element={<RequireAuth><InventoryPrivate></InventoryPrivate></RequireAuth>}></Route>
+        <Route path='/manageinventoreis' element={<ManageInventories></ManageInventories>}></Route>
       </Routes>
     </>
   );
