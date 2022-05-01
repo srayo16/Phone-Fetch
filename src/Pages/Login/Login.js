@@ -52,7 +52,6 @@ const Login = () => {
         if (email && !error2) {
             await sendPasswordResetEmail(email);
             toast('Sent email');
-
         }
         else {
             alert('Email field empty!');

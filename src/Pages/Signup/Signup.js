@@ -52,6 +52,7 @@ const Signup = () => {
             localStorage.setItem('userName', name);
             localStorage.setItem('userAddress', address);
             localStorage.setItem('userNumber', number);
+            event.target.reset();
         }
 
         else if (password !== confirmPassword) {

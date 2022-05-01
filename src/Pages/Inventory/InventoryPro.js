@@ -21,7 +21,7 @@ const InventoryPro = ({ item }) => {
                             {!expand && description.slice(0, 90) + '...'} {!expand && <button className='bg-light border-0 text-primary fst-italic fw-bold p-0' onClick={() => disExpand(true)}>Read more</button>}
                             {expand && description} {expand && <button className='bg-light border-0 text-primary fst-italic fw-bold p-0' onClick={() => disExpand(false)}>Read less</button>}
                         </p>
-                        <span className='fw-bold'><span className='text-danger'>Price:</span> {price}</span> <br />
+                        <span className='fw-bold'><span className='text-danger'>Price:</span> ${price}</span> <br />
                         <span className='fw-bold'><span className='text-danger'>Quantity:</span> {quantity}</span>
                         <p className='text-muted fw-bolder'><small>Supplier Name: {supplierName}</small></p>
                     </Card.Text>
