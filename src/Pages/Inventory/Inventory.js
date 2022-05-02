@@ -18,7 +18,7 @@ const Inventory = () => {
                 }
             </div>
            <div className='text-center mt-4 mb-5'>
-           <Link to='/manageinventoreis' className='text-decoration-none fw-bold fst-italic'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
+           <Link to='/manageinventoreis' className='text-decoration-none fw-bold fst-italic fs-5z'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
            </div>
         </div>
     );

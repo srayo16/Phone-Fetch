@@ -107,10 +107,10 @@ const InventoryPrivate = () => {
                         <Button variant="outline-primary" onClick={() => handleDeliver()} className='border-0 rounded-pill pt-2 pb-2 mb-2'><span className='pe-2'><GrDeliver></GrDeliver> </span> <span className='pe-3 fw-bold'>Delivery</span></Button>
                         <div className='mt-2 mb-2 d-inline'>
                             <form onSubmit={newStock}>
-                                <input type="text" name='number' className=' border border-end-0 border-primary ps-2' placeholder='put here stock number' required />
+                                <input type="number" name='number' className=' border border-end-0 border-primary ps-2' placeholder='put here stock number' required />
                                 <input type="submit" value="Restock" className='bg-primary text-light border-0 rounded ps-2 pe-2 pt-1 pb-1' />
                             </form>
-                            <Link to='/manageinventoreis' className='text-decoration-none fw-bold fst-italic'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
+                            <Link to='/manageinventoreis' className='text-decoration-none fs-5 fw-bold fst-italic'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
 
                         </div>
                     </div>

@@ -30,10 +30,10 @@ const Manageinventorypro = ({ item, serial, deleteui }) => {
             <tbody>
                 <tr>
                     <td>{serial}</td>
-                    <td> <img src={img} className='img-fluid' width={'50px'} alt="" /> </td>
+                    <td> <img src={img} className='img-fluid' width={'70px'} alt="" /> </td>
                     <td>{name}</td>
                     <td>{quantity}</td>
-                    <td><button onClick={() => deleteItem(_id)}>Delete</button></td>
+                    <td><button className='border-0 mt-2 text-danger fw-bold rounded' onClick={() => deleteItem(_id)}>Delete</button></td>
                 </tr>
             </tbody>
         </>
