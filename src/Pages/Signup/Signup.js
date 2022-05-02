@@ -24,11 +24,11 @@ const Signup = () => {
     const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
     let errorMessage;
-    if (error) {
-        errorMessage = <p className='text-danger fw-bold'>{error.message}</p>
+    if (error || error2 || error3) {
+        errorMessage = <p className='text-danger fw-bold'>{error?.message} {error2?.message} {error3?.message} </p>
     }
 
-    if (loading) {
+    if (loading || sending || updating) {
         return <Spinners></Spinners>
     }
 

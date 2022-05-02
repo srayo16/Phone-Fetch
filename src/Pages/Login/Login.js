@@ -35,13 +35,19 @@ const Login = () => {
         return <Spinners></Spinners>
     }
 
+    if (user) {
+        
+        navigate(from, { replace: true });
+    }
+
     //log form issue arrow funtion
     const onsublogin = async event => {
+
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        navigate(from, { replace: true });
+
     }
 
     //reset pass function
