@@ -15,7 +15,7 @@ const Header = () => {
     const logOutHobe = () => {
 
         signOut(auth).then(() => {
-            
+
             toast('Log out successful')
 
         }).catch((error) => {
@@ -36,7 +36,12 @@ const Header = () => {
                             navbarScroll
                         >
                             <CustomLink className='me-3' to="/home">Home</CustomLink>
-                            <Nav.Link className='me-3' href='#inventory' style={{ color: 'orange' }}>Inventory</Nav.Link>
+                            <CustomLink className='me-3' to="/blogs">Blogs</CustomLink>
+
+                            {user && <CustomLink className='me-3' to="/myitems">My Items</CustomLink>}
+                            {user && <CustomLink className='me-3' to="/manageinventoreis">Manage Inventories</CustomLink>}
+                            {user && <CustomLink className='me-3' to="/addnew">Add One</CustomLink>}
+
                             {
                                 user ? <button className='bg-dark border-0 p-0 me-3' style={{ color: 'orange' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
                             }
