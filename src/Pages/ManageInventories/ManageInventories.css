@@ -10,5 +10,8 @@
         align-items: center;
      
     }
+    .forRespoWidth{
+        width: fit-content !important;
+    }
    
 }
