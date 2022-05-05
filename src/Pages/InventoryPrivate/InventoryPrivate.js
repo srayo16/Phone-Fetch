@@ -17,11 +17,11 @@ const InventoryPrivate = () => {
 
 
     const handleDeliver = () => {
+        
         let deliver = 1;
         let quantityParse = parseInt(detail.quantity);
         let quantity = quantityParse - deliver;
 
-        // let updatedQuantity = { quantity };
         let updatedQuantity = {
             _id: detail._id,
             name: detail.name,
@@ -59,7 +59,6 @@ const InventoryPrivate = () => {
         let quantity1 = detail.quantity;
         let quantity2 = parseInt(quantity1);
         let quantity = stocksReal + quantity2;
-
 
         let againUpdateQuantity = {
             _id: detail._id,

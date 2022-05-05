@@ -24,10 +24,10 @@ const Header = () => {
 
     }
     return (
-        <div>
-            <Navbar bg="dark" expand="lg" variant="dark">
+        <div  className='sticky-top'>
+            <Navbar bg="dark" expand="lg" style={{height: '70px'}} variant="dark" className='bg-dark'>
                 <Container>
-                    <Navbar.Brand as={Link} to='/'>Phone-Fetch<FcSmartphoneTablet></FcSmartphoneTablet></Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/'>Phone-Fetch <FcSmartphoneTablet></FcSmartphoneTablet></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -43,7 +43,7 @@ const Header = () => {
                             {user && <CustomLink className='me-3' to="/addnew">Add One</CustomLink>}
 
                             {
-                                user ? <button className='bg-dark border-0 p-0 me-3' style={{ color: 'orange' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
+                                user ? <button className='bg-dark  border-0 p-0 me-3' style={{ color: 'orange' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
                             }
 
 
