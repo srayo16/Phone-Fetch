@@ -1,10 +1,10 @@
 import React from 'react';
 import UseItems from '../../Hooks/UseItems';
 
-const Manageinventorypro = ({ item, serial, deleteui }) => {
+const Manageinventorypro = ({ item, serial, deleteUi }) => {
     // const [items , setItems] = UseItems();
-    const { name, img, description, price, quantity, supplierName, _id } = item;
-
+    const { name, img, quantity, _id } = item;
+    
     const deleteItem = (id) => {
 
         const procced = window.confirm('Are you sure to delete this?');
@@ -20,7 +20,7 @@ const Manageinventorypro = ({ item, serial, deleteui }) => {
 
                     if (data.deletedCount > 0) {
 
-                        deleteui(id)
+                        deleteUi(id)
                     }
                 })
         }

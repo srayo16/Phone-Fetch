@@ -3,13 +3,17 @@ import { Button, Form } from 'react-bootstrap';
 import './AddnewItem.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '../../Footer/Footer';
+import Footer from '../Shared/Footer/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../Shared/Firebase.init';
 
 const AddnewItem = () => {
+    const [user] = useAuthState(auth);
 
     const postItem = event => {
         event.preventDefault();
 
+        const email = user.email;
         const name = event.target.name.value;
         const img = event.target.image.value;
         const price = event.target.price.value;
@@ -17,7 +21,7 @@ const AddnewItem = () => {
         const supplierName = event.target.supName.value;
         const description = event.target.descrip.value;
 
-        const items = { name, img, description, price, quantity, supplierName }
+        const items = { email, name, img, description, price, quantity, supplierName }
 
         const url = 'http://localhost:5000/inventory';
         fetch(url, {
@@ -30,8 +34,9 @@ const AddnewItem = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                toast('Product added successfully')
+                toast('Product added successfully');
                 event.target.reset();
+                // console.log(data);
             })
 
     }
@@ -45,6 +50,10 @@ const AddnewItem = () => {
                 <div className='mx-auto handleWidth'>
 
                     <Form onSubmit={postItem}>
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" placeholder="Enter email" name='email' value={user.email} required readOnly />
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" placeholder="Enter product's name" name='name' required />

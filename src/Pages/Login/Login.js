@@ -4,8 +4,8 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '../../Footer/Footer';
 import auth from '../Shared/Firebase.init';
+import Footer from '../Shared/Footer/Footer';
 import Social from '../Social/Social';
 import Spinners from '../Spinners';
 import './Login.css';

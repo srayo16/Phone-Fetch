@@ -24,10 +24,10 @@ const Header = () => {
 
     }
     return (
-        <div  className='sticky-top'>
-            <Navbar bg="dark" expand="lg" style={{height: '70px'}} variant="dark" className='bg-dark'>
+        <>
+            <Navbar bg="dark" className='sticky-top' expand="lg" variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to='/'>Phone-Fetch <FcSmartphoneTablet></FcSmartphoneTablet></Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/' className='fs-4'>Phone-Fetch <FcSmartphoneTablet></FcSmartphoneTablet></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -62,7 +62,7 @@ const Header = () => {
                 </Container>
             </Navbar>
             <ToastContainer />
-        </div>
+        </>
     );
 };
 

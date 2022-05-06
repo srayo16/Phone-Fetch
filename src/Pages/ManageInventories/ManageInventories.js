@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import UseItems from '../../Hooks/UseItems';
 import Manageinventorypro from './Manageinventorypro';
 import './ManageInventories.css';
-import Footer from '../../Footer/Footer';
+import Footer from '../Shared/Footer/Footer';
 
 const ManageInventories = () => {
     const [items, setItems] = UseItems();
     let serial = 1;
 
-    let deleteui = id => {
+    let deleteUi = id => {
         let remaining = items.filter(item => item._id !== id);
         // console.log(items.filter(item => item._id));
         setItems(remaining);
@@ -33,7 +33,7 @@ const ManageInventories = () => {
                                 </tr>
                             </thead>
                             {
-                                items.map(item => <Manageinventorypro key={item._id} deleteui={deleteui} item={item} serial={serial++}></Manageinventorypro>)
+                                items.map(item => <Manageinventorypro key={item._id} deleteUi={deleteUi} item={item} serial={serial++}></Manageinventorypro>)
                             }
 
                         </Table>

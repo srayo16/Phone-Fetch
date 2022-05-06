@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../Footer/Footer';
 import ForimageSection from '../ForimageSection/ForimageSection';
 import Inventory from '../Pages/Inventory/Inventory';
+import Footer from '../Pages/Shared/Footer/Footer';
 
 
 const Home = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../../Footer/Footer';
+import Footer from '../Shared/Footer/Footer';
 
 const Nopage = () => {
 

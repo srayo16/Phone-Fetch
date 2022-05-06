@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const Myitemspro = ({item}) => {
+const Myitemspro = ({ item, deleteUi }) => {
     const [expand, disExpand] = useState(false);
     const navigate = useNavigate();
     const { name, img, description, price, quantity, supplierName, _id } = item;
@@ -10,6 +10,28 @@ const Myitemspro = ({item}) => {
     const gotoCheckout = id => {
         navigate(`/inventory/${id}`);
     }
+
+    const deleteItem = (id) => {
+
+        const procced = window.confirm('Are you sure to delete this?');
+
+        if (procced) {
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE',
+
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount > 0) {
+
+                        deleteUi(id)
+                    }
+                })
+        }
+    }
+
     return (
 
         <div className='col'>
@@ -26,7 +48,8 @@ const Myitemspro = ({item}) => {
                         <span className='fw-bold'><span className='text-danger'>Quantity:</span> {quantity}</span>
                         <p className='text-muted fw-bolder'><small>Supplier Name: {supplierName}</small></p>
                     </Card.Text>
-                    <Button variant="primary" onClick={() => gotoCheckout(_id)} className='ms-5 ps-5 pe-5 pt-2 pb-2'>Stock Update</Button>
+                    <Button variant="primary" onClick={() => gotoCheckout(_id)} className='ms-5 mb-3 ps-5 pe-5 pt-2 pb-2'>Stock Update</Button>
+                    <Button variant="danger" onClick={() => deleteItem (_id)} style={{ marginLeft: '75px' }} className='ps-5 pe-5 pt-2 pb-2'>Delete</Button>
                 </Card.Body>
             </Card>
         </div>
