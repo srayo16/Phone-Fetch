@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import Footer from '../Shared/Footer/Footer';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -6,12 +6,13 @@ import auth from '../Shared/Firebase.init';
 import './Myitems.css';
 import { useEffect, useState } from 'react';
 import Myitemspro from './Myitemspro';
-import { async } from '@firebase/util';
-import axios from 'axios';
+import { signOut } from 'firebase/auth';
+import AxiosPersonal from '../../Api/AxiosPersonal';
 
 const Myitems = () => {
     const [user] = useAuthState(auth);
     // console.log(user);
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -19,13 +20,22 @@ const Myitems = () => {
 
             const email = user.email;
             const url = `http://localhost:5000/addone?email=${email}`;
-            const { data } = await axios.get(url)
-            setProducts(data);
+            try {
+                const { data } = await AxiosPersonal.get(url);
+                setProducts(data);
+            }
+            catch (error) {
+                // console.log(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
         }
 
         handleProducts();
 
-    }, [user.email])
+    }, [navigate , user.email])
 
     let deleteUi = id => {
         let remaining = products.filter(item => item._id !== id);

@@ -17,9 +17,13 @@ const Header = () => {
         signOut(auth).then(() => {
 
             toast('Log out successful')
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userAddress');
+            localStorage.removeItem('userNumber');
 
         }).catch((error) => {
             // An error happened.
+            console.error(error.message);
         });
 
     }

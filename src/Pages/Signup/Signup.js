@@ -7,7 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinners from '../Spinners';
 import Social from '../Social/Social';
-import { async } from '@firebase/util';
 import Footer from '../Shared/Footer/Footer';
 
 const Signup = () => {
