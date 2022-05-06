@@ -50,10 +50,12 @@ const AddnewItem = () => {
                 <div className='mx-auto handleWidth'>
 
                     <Form onSubmit={postItem}>
+                        
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" name='email' value={user.email} required readOnly />
                         </Form.Group>
+
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" placeholder="Enter product's name" name='name' required />

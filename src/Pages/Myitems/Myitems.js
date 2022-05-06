@@ -35,7 +35,7 @@ const Myitems = () => {
 
     return (
         <>
-            <div className='container overflow-hidden mb-5' id='inventory' style={{ height: '600px' }}>
+            <div className='container overflow-hidden mb-5' id='inventory' style={{ height: products.length > 0 ? 'auto' : '700px' }}>
                 <h2 className='text-success text-center fw-bolder mt-3 pt-3'>Welcome to Stock Items</h2> <hr className=' mb-3' />
 
                 <div className='text-center shadow-lg p-3 mb-5 bg-body rounded fixedWidthforRespo mx-auto'>
