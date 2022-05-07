@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import InventoryPro from './InventoryPro';
 import { BsArrowRight } from 'react-icons/bs';
@@ -23,7 +23,7 @@ const Inventory = () => {
                     items.slice(0, 6).map(item => <InventoryPro key={item._id} item={item}></InventoryPro>)
                 }
             </div>
-            <div className='text-center mt-4 mb-5'>
+            <div className='text-end me-5 mb-5'>
                 <Link to='/manageinventoreis' className='text-decoration-none fw-bold fst-italic fs-5z'>Manage Inventories <BsArrowRight></BsArrowRight></Link>
             </div>
         </div>

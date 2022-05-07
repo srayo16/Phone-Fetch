@@ -47,21 +47,10 @@ const Header = () => {
                             {user && <CustomLink className='me-3' to="/addnew">Add One</CustomLink>}
 
                             {
-                                user ? <button className='bg-dark  border-0 p-0 me-3' style={{ color: 'orange' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
+                                user ? <button className='bg-dark  border-0 p-0 me-3' style={{ color: 'rgb(255, 196, 0)' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
                             }
 
-
-
                         </Nav>
-                        <Form className="d-flex">
-                            <FormControl
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="primary">Search</Button>
-                        </Form>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
