@@ -22,7 +22,7 @@ const AddnewItem = () => {
 
         const items = { email, name, img, description, price, quantity, supplierName }
 
-        const url = 'http://localhost:5000/inventory';
+        const url = 'https://peaceful-mountain-77766.herokuapp.com/inventory';
         fetch(url, {
             method: "POST",
             headers: {

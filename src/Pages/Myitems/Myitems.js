@@ -18,7 +18,7 @@ const Myitems = () => {
         const handleProducts = async () => {
 
             const email = user.email;
-            const url = `http://localhost:5000/addone?email=${email}`;
+            const url = `https://peaceful-mountain-77766.herokuapp.com/addone?email=${email}`;
             try {
                 const { data } = await AxiosPersonal.get(url);
                 setProducts(data);

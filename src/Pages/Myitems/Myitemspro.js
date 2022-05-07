@@ -16,7 +16,7 @@ const Myitemspro = ({ item, deleteUi }) => {
         const procced = window.confirm('Are you sure to delete this?');
 
         if (procced) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://peaceful-mountain-77766.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
 
@@ -49,7 +49,7 @@ const Myitemspro = ({ item, deleteUi }) => {
                         <p className='text-muted fw-bolder'><small>Supplier Name: {supplierName}</small></p>
                     </Card.Text>
                     <Button variant="primary" onClick={() => gotoCheckout(_id)} className='ms-5 mb-3 ps-5 pe-5 pt-2 pb-2'>Stock Update</Button>
-                    <Button variant="danger" onClick={() => deleteItem (_id)} style={{ marginLeft: '75px' }} className='ps-5 pe-5 pt-2 pb-2'>Delete</Button>
+                    <Button variant="danger" onClick={() => deleteItem(_id)} style={{ marginLeft: '75px' }} className='ps-5 pe-5 pt-2 pb-2'>Delete</Button>
                 </Card.Body>
             </Card>
         </div>

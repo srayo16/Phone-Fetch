@@ -4,13 +4,13 @@ import UseItems from '../../Hooks/UseItems';
 const Manageinventorypro = ({ item, serial, deleteUi }) => {
     // const [items , setItems] = UseItems();
     const { name, img, quantity, _id } = item;
-    
+
     const deleteItem = (id) => {
 
         const procced = window.confirm('Are you sure to delete this?');
 
         if (procced) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://peaceful-mountain-77766.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
 

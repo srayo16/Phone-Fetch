@@ -9,7 +9,7 @@ const InventoryPrivate = () => {
     const { id } = useParams();
     const [detail, setDetail] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://peaceful-mountain-77766.herokuapp.com/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDetail(data))
@@ -35,7 +35,7 @@ const InventoryPrivate = () => {
                 supplierName: detail.supplierName
             };
 
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://peaceful-mountain-77766.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -78,7 +78,7 @@ const InventoryPrivate = () => {
             supplierName: detail.supplierName
         }
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://peaceful-mountain-77766.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
