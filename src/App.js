@@ -13,6 +13,7 @@ import Myitems from './Pages/Myitems/Myitems';
 import Blogs from './Pages/Blogs/Blogs';
 import Nopage from './Pages/Nopage/Nopage';
 import Getallreview from './Pages/Getallreview/Getallreview';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<Nopage></Nopage>}></Route>
       </Routes>
+      <Footer></Footer>
     </>
   );
 }

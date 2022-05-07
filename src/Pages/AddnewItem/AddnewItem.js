@@ -3,7 +3,6 @@ import { Button, Form } from 'react-bootstrap';
 import './AddnewItem.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '../Shared/Footer/Footer';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Shared/Firebase.init';
 
@@ -42,56 +41,53 @@ const AddnewItem = () => {
     }
 
     return (
-        <>
-            <div className='container mt-3 mb-5'>
+        <div className='container mt-3 mb-5'>
 
-                <h3 className='text-center fw-bolder text-success'>Add a new item</h3> <hr className='mb-4' />
+            <h3 className='text-center fw-bolder text-success'>Add a new item</h3> <hr className='mb-4' />
 
-                <div className='mx-auto handleWidth'>
+            <div className='mx-auto handleWidth'>
 
-                    <Form onSubmit={postItem}>
-                        
-                        <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" name='email' value={user.email} required readOnly />
-                        </Form.Group>
+                <Form onSubmit={postItem}>
 
-                        <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter product's name" name='name' required />
-                        </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" name='email' value={user.email} required readOnly />
+                    </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicImage">
-                            <Form.Label>Image</Form.Label>
-                            <Form.Control type="text" placeholder="Image url" name='image' required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicDescription">
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type="text" placeholder="Description" name='descrip' required />
-                        </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter product's name" name='name' required />
+                    </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPrice">
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control type="number" placeholder="Price" name='price' required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicQuantity">
-                            <Form.Label>Quantity</Form.Label>
-                            <Form.Control type="number" placeholder="Quantity" name='quantity' required />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicSupplierName">
-                            <Form.Label>SupplierName</Form.Label>
-                            <Form.Control type="text" placeholder="SupplierName" name='supName' required />
-                        </Form.Group>
-                        <Button variant="primary" className='ps-3 pe-3 pt-2 pb-2 mt-2' type="submit">
-                            Add Item
-                        </Button>
+                    <Form.Group className="mb-3" controlId="formBasicImage">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="text" placeholder="Image url" name='image' required />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicDescription">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" placeholder="Description" name='descrip' required />
+                    </Form.Group>
 
-                    </Form>
-                </div>
-                <ToastContainer />
+                    <Form.Group className="mb-3" controlId="formBasicPrice">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" placeholder="Price" name='price' required />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicQuantity">
+                        <Form.Label>Quantity</Form.Label>
+                        <Form.Control type="number" placeholder="Quantity" name='quantity' required />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicSupplierName">
+                        <Form.Label>SupplierName</Form.Label>
+                        <Form.Control type="text" placeholder="SupplierName" name='supName' required />
+                    </Form.Group>
+                    <Button variant="primary" className='ps-3 pe-3 pt-2 pb-2 mt-2' type="submit">
+                        Add Item
+                    </Button>
+
+                </Form>
             </div>
-            <Footer></Footer>
-        </>
+            <ToastContainer />
+        </div>
     );
 };
 
