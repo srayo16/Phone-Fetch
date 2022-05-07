@@ -4,6 +4,7 @@ import './InventoryPrivate.css';
 import { GrDeliver } from 'react-icons/gr';
 import { Badge, Button } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
+import Spinners from '../Spinners';
 
 const InventoryPrivate = () => {
     const { id } = useParams();
@@ -15,6 +16,10 @@ const InventoryPrivate = () => {
             .then(data => setDetail(data))
     }, [id])
 
+    //loading issue
+    if (detail.length <= 0) {
+        return <Spinners></Spinners>
+    }
 
     const handleDeliver = () => {
 
@@ -99,9 +104,7 @@ const InventoryPrivate = () => {
 
     return (
 
-        <section className='container mt-3'>
-
-            {/* <h1 className='text-center text-primary mb-5'>Inventory Page</h1> */}
+        <section className='container mt-3' style={{ height: '650px' }}>
 
             <h3 className='text-center fw-bolder text-success'>Product's Detail and Management</h3> <hr />
             <div className='handleSection mt-5'>
