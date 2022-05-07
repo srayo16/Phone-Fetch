@@ -46,7 +46,7 @@ const InventoryPrivate = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.modifiedCount > 0) {
-                        console.log('success', data);
+                        // console.log('success', data);
 
                         setDetail(updatedQuantity);
 
