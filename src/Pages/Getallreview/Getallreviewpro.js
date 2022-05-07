@@ -1,14 +1,16 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const Reviewpartpro = ({ reviewOne }) => {
-    
-    const { name, img, review, star } = reviewOne;
+const Getallreviewpro = ({ reviewPerson }) => {
+
+    const { name, img, review, star } = reviewPerson;
 
     return (
         <div className='col-12 col-sm-12 col-md-6 col-lg-4'>
-            <Card border="light" style={{ width: '22rem' , height: '300px' }}  className='shadow p-3 mb-5 bg-body rounded'>
-                <Card.Header className='mx-auto'> <img src= {img} className='img-fluid' alt="" /> </Card.Header>
+            <Card border="light" style={{ width: '22rem' , height: '300px'}} className='shadow p-3 mb-5 bg-body rounded'>
+               <div className='w-50 mx-auto'>
+               <Card.Header className='mx-auto'> <img src={img} className='img-fluid' alt="" /> </Card.Header>
+               </div>
                 <Card.Body>
                     <Card.Title className='text-center fw-bolder text-success'>{name}</Card.Title>
                     <Card.Text className='text-center'>
@@ -21,4 +23,4 @@ const Reviewpartpro = ({ reviewOne }) => {
     );
 };
 
-export default Reviewpartpro;
+export default Getallreviewpro;
