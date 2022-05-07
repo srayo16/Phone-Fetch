@@ -1,0 +1,39 @@
+.homePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+
+
+}
+
+.captionPrt {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 50px;
+}
+
+
+
+@media screen and (max-width: 440px) {
+    .homePage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+    }
+
+
+    .captionPrt {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        width: 250px;
+        margin-left: 80px;
+
+    }
+
+    .captionPrt p {
+        margin-right: 25px;
+    }
+
+}

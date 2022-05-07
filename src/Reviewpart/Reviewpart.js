@@ -4,10 +4,15 @@ import './Reviewpart.css';
 import { BsArrowRight } from 'react-icons/bs';
 import Reviewpartpro from './Reviewpartpro';
 import Usereview from '../Hooks/Usereview';
+import Spinners from '../Pages/Spinners';
 
 const Reviewpart = () => {
 
     const [reviews] = Usereview();
+    
+    if (reviews.length <= 0) {
+        return <Spinners></Spinners>
+    }
 
     return (
         <div className='container overflow-hidden mb-5'>
@@ -15,7 +20,7 @@ const Reviewpart = () => {
             <div className='row gx-5 gy-5'>
 
                 {
-                    reviews.slice(0,3).map(reviewOne => <Reviewpartpro key={reviewOne._id} reviewOne={reviewOne}></Reviewpartpro>)
+                    reviews.slice(0, 3).map(reviewOne => <Reviewpartpro key={reviewOne._id} reviewOne={reviewOne}></Reviewpartpro>)
                 }
 
             </div>

@@ -1,11 +1,15 @@
 import React from 'react';
 import Usereview from '../../Hooks/Usereview';
 import Footer from '../Shared/Footer/Footer';
+import Spinners from '../Spinners';
 import Getallreviewpro from './Getallreviewpro';
 
 const Getallreview = () => {
 
     const [reviews] = Usereview();
+    if (reviews.length <= 0) {
+        return <Spinners></Spinners>
+    }
 
     return (
         <>

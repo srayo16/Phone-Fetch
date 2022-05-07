@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Pages/Shared/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home/Home';
+import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import InventoryPrivate from './Pages/InventoryPrivate/InventoryPrivate';
