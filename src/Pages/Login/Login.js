@@ -38,6 +38,7 @@ const Login = () => {
 
     if (user) {
         navigate(from, { replace: true });
+        toast('Logged In');
     }
 
     //log form issue arrow funtion

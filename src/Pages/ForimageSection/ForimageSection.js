@@ -1,11 +1,10 @@
 import React from 'react';
-import image from '../../src/images/image.jpg';
 
 const ForimageSection = () => {
 
     return (
         <>
-            <img src={image} className='img-fluid' alt="" />
+            <img src="https://i.ibb.co/jWTb2QQ/image.jpg" className='img-fluid' alt="" />
         </>
 
     );

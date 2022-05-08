@@ -11,9 +11,10 @@ const InventoryPro = ({ item }) => {
     const gotoCheckout = id => {
         navigate(`/inventory/${id}`);
     }
+
     return (
         <div className='col-12 col-sm-12 col-md-6 col-lg-4'>
-            <Card style={{ width: '22rem'}} className='shadow p-3 mb-5 bg-body rounded'>
+            <Card style={{ width: '22rem' }} className='shadow p-3 mb-5 bg-body rounded'>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>

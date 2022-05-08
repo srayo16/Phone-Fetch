@@ -1,8 +1,9 @@
 import React from 'react';
-import ForimageSection from '../../ForimageSection/ForimageSection';
 import Inventory from '../Inventory/Inventory';
 import Reviewpart from '../../Reviewpart/Reviewpart';
 import Intro from '../Intro/Intro';
+import Onlyimage from '../Onlyimage/Onlyimage';
+import ForimageSection from '../ForimageSection/ForimageSection';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <Intro></Intro>
             <Inventory></Inventory>
             <Reviewpart></Reviewpart>
+            <Onlyimage></Onlyimage>
         </>
     );
 };

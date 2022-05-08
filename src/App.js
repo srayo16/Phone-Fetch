@@ -14,6 +14,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import Nopage from './Pages/Nopage/Nopage';
 import Getallreview from './Pages/Getallreview/Getallreview';
 import Footer from './Pages/Shared/Footer/Footer';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/addnew' element={<RequireAuth><AddnewItem></AddnewItem></RequireAuth>}></Route>
         <Route path='/myitems' element={<RequireAuth><Myitems></Myitems></RequireAuth>}></Route>
         <Route path='/allreview' element={<RequireAuth><Getallreview></Getallreview></RequireAuth>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<Nopage></Nopage>}></Route>
       </Routes>

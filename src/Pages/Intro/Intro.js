@@ -6,7 +6,7 @@ import './Intro.css';
 
 const Intro = () => {
     const navigate = useNavigate();
-    const navigatetoManage = ()=>{
+    const navigatetoManage = () => {
         navigate('/manageinventoreis')
     }
 
@@ -17,10 +17,10 @@ const Intro = () => {
                 <h1 className='text-primary'>For 2022</h1>
                 <hr />
                 <p className='pt-2'>There are new phones arriving all the time, especially when it comes to the world of Android. Apple's iPhones will always be popular but handsets running Google's mobile OS provide you with a wealth of choice - and usually much better specs for the same price.</p>
-                    <Button variant="primary" onClick={() => navigatetoManage()} className='ps-3 pe-3 pt-2 pb-2 '>Manage All</Button>
+                <Button variant="primary" onClick={() => navigatetoManage()} className='ps-3 pe-3 pt-2 pb-2 '>Manage All</Button>
             </div>
             <div className='w-100'>
-                <img className='img-fluid' src= {intro1} alt="" />
+                <img className='img-fluid' src={intro1} alt="" />
             </div>
         </section>
     );

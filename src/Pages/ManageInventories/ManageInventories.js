@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import UseItems from '../../Hooks/UseItems';
 import Manageinventorypro from './Manageinventorypro';
 import './ManageInventories.css';
+import Spinners from '../Spinners';
 
 const ManageInventories = () => {
     const [items, setItems] = UseItems();
     let serial = 1;
+
+    if (items.length <= 0) {
+        return <Spinners></Spinners>
+    }
 
     let deleteUi = id => {
         let remaining = items.filter(item => item._id !== id);

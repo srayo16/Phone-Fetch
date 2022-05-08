@@ -1,0 +1,24 @@
+.fixxingforRespo {
+    width: 500px;
+}
+
+.forflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 440px) {
+    .fixxingforRespo {
+
+        width: fit-content !important;
+
+    }
+
+    .forflex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

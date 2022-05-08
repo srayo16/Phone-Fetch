@@ -35,7 +35,6 @@ const AddnewItem = () => {
                 // console.log(data);
                 toast('Product added successfully');
                 event.target.reset();
-                // console.log(data);
             })
 
     }

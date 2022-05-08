@@ -24,7 +24,7 @@ const Reviewpart = () => {
                 }
 
             </div>
-            <div className='text-end me-5 mb-5'>
+            <div className='text-end me-5 mb-2'>
                 <Link to='/allreview' className='text-decoration-none fw-bold fst-italic fs-5z'>See All <BsArrowRight></BsArrowRight></Link>
             </div>
         </div>

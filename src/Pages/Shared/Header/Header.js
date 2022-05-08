@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CustomLink from '../../CustomLink';
 import { FcSmartphoneTablet } from 'react-icons/fc';
@@ -42,14 +42,26 @@ const Header = () => {
                             <CustomLink className='me-3' to="/home">Home</CustomLink>
                             <CustomLink className='me-3' to="/blogs">Blogs</CustomLink>
 
-                            {user && <CustomLink className='me-3' to="/myitems">My Items</CustomLink>}
-                            {user && <CustomLink className='me-3' to="/manageinventoreis">Manage Inventories</CustomLink>}
-                            {user && <CustomLink className='me-3' to="/addnew">Add One</CustomLink>}
-
                             {
-                                user ? <button className='bg-dark  border-0 p-0 me-3' style={{ color: 'rgb(255, 196, 0)' }} onClick={() => logOutHobe()}>Log out</button> : <CustomLink className='me-3' to="/login">Log In</CustomLink>
+                                user ? '' : <CustomLink className='me-3' to="/login">Log In</CustomLink>
                             }
 
+                            {user &&
+                                <NavDropdown title="Profiles" id="navbarScrollingDropdown">
+
+                                    <NavDropdown.Item as={Link} to="/dashboard">Dashboard</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/myitems">My Items</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/manageinventoreis">Manage Inventories</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/addnew">Add One</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/allreview">Reviews</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to="/manageinventoreis">Manage Inventories</NavDropdown.Item>
+
+                                    <NavDropdown.Divider />
+                                    <div className='text-center'>
+                                        <button className=' bg-light text-danger fw-bolder border-0 p-0' onClick={() => logOutHobe()}>Log out</button>
+                                    </div>
+                                </NavDropdown>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

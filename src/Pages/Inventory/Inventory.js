@@ -13,7 +13,7 @@ const Inventory = () => {
         return <Spinners></Spinners>
     }
     // console.log(items);
-    
+
     return (
 
         <div className='container overflow-hidden' id='inventory'>
