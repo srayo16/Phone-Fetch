@@ -54,7 +54,6 @@ const Header = () => {
                                     <NavDropdown.Item as={Link} to="/manageinventoreis">Manage Inventories</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to="/addnew">Add One</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to="/allreview">Reviews</NavDropdown.Item>
-                                    <NavDropdown.Item as={Link} to="/manageinventoreis">Manage Inventories</NavDropdown.Item>
 
                                     <NavDropdown.Divider />
                                     <div className='text-center'>

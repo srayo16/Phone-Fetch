@@ -25,6 +25,14 @@ const Manageinventorypro = ({ item, serial, deleteUi }) => {
                 })
         }
     }
+
+    const alertkoro = () => {
+        let process = window.confirm('Are you sure to delete this product?');
+
+        if (process) {
+            alert('Delete button is temporary disabled by Srayo for security purpose');
+        }
+    }
     return (
         <>
             <tbody>
@@ -33,7 +41,10 @@ const Manageinventorypro = ({ item, serial, deleteUi }) => {
                     <td> <img src={img} className='img-fluid' width={'70px'} alt="" /> </td>
                     <td>{name}</td>
                     <td>{quantity}</td>
-                    <td><button className='border-0 mt-2 text-danger fw-bold rounded' onClick={() => deleteItem(_id)}>Delete</button></td>
+
+                    {/* <td><button className='border-0 mt-2 text-danger fw-bold rounded' disabled onClick={() => deleteItem(_id)}>Delete</button></td> */}
+
+                    <td><button className='border-0 mt-2 text-danger fw-bold rounded' onClick={() => alertkoro()}>Delete</button></td>
                 </tr>
             </tbody>
         </>
