@@ -104,7 +104,7 @@ const InventoryPrivate = () => {
 
     return (
 
-        <section className='container mt-3' style={{ height: '650px' }}>
+        <section className='container mt-3 mb-5 pb-5'>
 
             <h3 className='text-center fw-bolder text-success'>Product's Detail and Management</h3> <hr />
             <div className='handleSection mt-5'>
